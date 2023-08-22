@@ -31,7 +31,6 @@ function createMainDiv() {
   const divToDoText = document.createElement("div");
   divToDoText.classList.add("to-do-text-div");
   divMain.appendChild(divToDoText);
-  console.dir(mainContainer);
 
   //Creating div section for buttons(edit, remove)
   const divToDoButtons = document.createElement("div");
@@ -65,20 +64,21 @@ function inputToDo() {
   innerInputDiv.appendChild(buttonAdd);
 
   upperDiv.appendChild(innerInputDiv);
-
-  return;
 }
 
 inputToDo();
 
 // Add list of input to div main section
-function addListToDiv() {
-  const divMain = document.querySelector(".to-do-text-div");
+function allInOneDiv() {
+  const editRemoveTxtDiv = document.createElement("div");
+  editRemoveTxtDiv.classList.add("edit-remove-txt-div");
 
   //Creating list of element to be added
   const listItem = document.createElement("li");
   listItem.classList.add("add-item-to-list");
-  divMain.appendChild(listItem);
+  editRemoveTxtDiv.appendChild(listItem);
+
+  mainDiv.appendChild(editRemoveTxtDiv);
 }
 
-addListToDiv();
+allInOneDiv();
