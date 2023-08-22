@@ -1,4 +1,9 @@
-const mainContainer = document.querySelector(".main-container");
+const sectionMain = document.querySelector(".main-section");
+
+//Creating main container
+const mainContainer = document.createElement("div");
+mainContainer.classList.add("main-container");
+sectionMain.appendChild(mainContainer);
 
 //This div is created only for logo of page and title
 function createLogo() {
