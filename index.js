@@ -107,21 +107,27 @@ function allInOneDiv() {
     spanTxt.textContent = textInput.value;
     let checkBox = document.createElement("input");
     checkBox.type = "checkbox";
+    checkBox.setAttribute("class","checkBox");
     spanTxt.appendChild(checkBox);
     checkBox.addEventListener("click", () => {
       if (checkBox.checked !== false) {
       spanTxt.style.textDecoration = "line-through";
       spanTxt.style.color = "green";
-      const todayDate = `   Date: ${new Date().getDate()}` + `/` + `${(new Date().getMonth() + 1)}` + `/` + `${new Date().getFullYear()}, Time: ${new Date().getHours()}:` + `${new Date().getMinutes()}`;
-      dateP  = document.createElement("p");
+      // const todayDate = `   Date: ${new Date().getDate()}` + `/` + `${(new Date().getMonth() + 1)}` + `/` + `${new Date().getFullYear()}, Time: ${new Date().getHours()}:` + `${new Date().getMinutes()}`;
+      const date = new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),new Date().getHours(),new Date().getMinutes());
+      const todayResult = date.toLocaleDateString("en-GB", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+      });
+      dateP = document.createElement("span.title");
       dateP.setAttribute("class","date");
-      dateP.innerText = todayDate;
-      dateP.style.display = "inline";
-      dateP.style.color = "grey";
-      listItem.appendChild(dateP);
-      dateP.style.textDecoration = "none !important";
+      dateP.innerText = todayResult;
+      spanTxt.title = todayResult;
       } else if (checkBox.checked !== true) {
-      listItem.removeChild(dateP);
+      spanTxt.title = "";
       spanTxt.style.textDecoration = "none";
       spanTxt.style.color = "black";
   }
