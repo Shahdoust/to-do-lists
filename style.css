@@ -2,3 +2,76 @@ body {
   margin: 0;
   padding: 0;
 }
+body {
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.upper-div {
+  margin: 1em;
+}
+
+.upper-div .input-data-to-do {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upper-div .input-to-do-text {
+  background-color: rgb(163, 207, 207);
+  min-height: 3em;
+  margin: 3px;
+  border: none;
+  border-radius: 20px;
+  padding: 0.5em;
+}
+
+.upper-div .input-to-do-text:hover {
+  box-shadow: 10px 5px 5px rgb(117, 142, 165);
+  transition-delay: 200ms;
+}
+
+.upper-div .add-btn-input {
+  display: inline-block;
+  background: url("./imgs/add-icon.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 3em;
+  height: 3em;
+  border: none;
+  margin: 3px;
+}
+
+.upper-div .add-btn-input:hover {
+  background-color: rgb(62, 75, 70);
+}
+/* Applied in .maindiv*/
+.add-item-to-list {
+  display: grid;
+  grid-template-columns: 1fr 3em 3em 3em;
+  padding: 1em;
+}
+
+.add-item-to-list:hover {
+  background-color: rgb(53, 124, 103);
+  border-radius: 10px;
+}
+
+.span-txt-task:hover {
+  color: rgb(148, 42, 42);
+}
+
+.btn-remove-todo {
+  max-width: 3em;
+}
+
+.to-do-text-div {
+  margin: 4em;
+  border-radius: 20px;
+  border: 3px solid;
+}
