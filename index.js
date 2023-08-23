@@ -60,7 +60,6 @@ function inputToDo() {
   // Adding click button to div input
   const buttonAdd = document.createElement("button");
   buttonAdd.classList.add("add-btn-input");
-  buttonAdd.textContent = "Add";
 
   innerInputDiv.appendChild(buttonAdd);
 
@@ -76,9 +75,25 @@ function addListToDiv() {
   const divMain = document.querySelector(".to-do-text-div");
 
   //Creating list of element to be added
-  const listItem = document.createElement("li");
-  listItem.classList.add("add-item-to-list");
-  divMain.appendChild(listItem);
+  const btnClicked = upperDiv.children[0].children[1];
+  const textInput = upperDiv.children[0].children[0];
+  btnClicked.addEventListener("click", () => {
+    const listItem = document.createElement("li");
+    listItem.classList.add("add-item-to-list");
+
+    //Create span inside list to show task text
+    const spanTxt = document.createElement("span");
+    spanTxt.classList.add("span-txt-task");
+    spanTxt.textContent = textInput.value;
+    listItem.appendChild(spanTxt);
+
+    //Create buttons remove and edit
+    const btRemove = document.createElement("button");
+    btRemove.classList.add("btn-remove-todo");
+    listItem.appendChild(btRemove);
+
+    divMain.appendChild(listItem);
+  });
 }
 
 addListToDiv();
