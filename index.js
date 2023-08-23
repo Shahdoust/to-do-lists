@@ -135,6 +135,32 @@ function allInOneDiv() {
 
     divMain.appendChild(listItem);
   });
+// sonia edit button
+const textElement = document.getElementById("text");
+const editButton = document.getElementById("editButton");
+
+editButton.addEventListener("click", () => {
+  const currentText = textElement.textContent;
+  const inputField = document.createElement("input");
+  inputField.value = currentText;
+
+  inputField.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      const newText = inputField.value;
+      textElement.textContent = newText;
+      textElement.style.display = "block";
+      inputField.style.display = "none";
+      editButton.style.display = "block";
+    }
+  });
+
+  editButton.style.display = "none";
+  textElement.style.display = "none";
+  inputField.style.display = "block";
+
+  textElement.parentNode.insertBefore(inputField, textElement);
+});
 }
+
 
 allInOneDiv();
