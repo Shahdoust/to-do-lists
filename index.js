@@ -113,7 +113,6 @@ function allInOneDiv() {
       if (checkBox.checked !== false) {
       spanTxt.style.textDecoration = "line-through";
       spanTxt.style.color = "green";
-      // const todayDate = `   Date: ${new Date().getDate()}` + `/` + `${(new Date().getMonth() + 1)}` + `/` + `${new Date().getFullYear()}, Time: ${new Date().getHours()}:` + `${new Date().getMinutes()}`;
       const date = new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),new Date().getHours(),new Date().getMinutes());
       const todayResult = date.toLocaleDateString("en-GB", {
         year: "numeric",
