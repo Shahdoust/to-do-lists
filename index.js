@@ -117,11 +117,15 @@ function allInOneDiv() {
     //Create span inside list to show task text
     const spanTxt = document.createElement("span");
     spanTxt.classList.add("span-txt-task");
+    spanTxt.style.textAlign = "center";
+    spanTxt.style.alignSelf = "center";
     spanTxt.textContent = textInput.value;
+    textInput.value = "";
+
     let checkBox = document.createElement("input");
     checkBox.type = "checkbox";
     checkBox.setAttribute("class", "checkBox");
-    spanTxt.appendChild(checkBox);
+
     checkBox.addEventListener("click", () => {
       if (checkBox.checked !== false) {
         spanTxt.style.textDecoration = "line-through";
@@ -149,6 +153,7 @@ function allInOneDiv() {
       }
     });
     listItem.appendChild(spanTxt);
+    listItem.appendChild(checkBox);
 
     //Create buttons remove and edit
     const btRemove = document.createElement("button");
@@ -158,15 +163,20 @@ function allInOneDiv() {
     divMain.appendChild(listItem);
     btRemove.textContent = "";
 
-    // divToDoButtons.appendChild(btRemove);
+    const completedBtn = document.createElement("button");
+    completedBtn.innerHTML = '<i class="fa fa-edit"></i>';
+    completedBtn.classList.add("completed-btn");
+    editListToDo(spanTxt, completedBtn);
+    listItem.appendChild(completedBtn);
 
     btRemove.addEventListener("click", (e) => {
       listItem.remove();
     });
   });
   // sonia edit button
-  const textElement = document.getElementById("text");
-  const editButton = document.getElementById("editButton");
+  // const textElement = document.getElementById("text");
+  const textElement = document.querySelector(".span-txt-task");
+  const editButton = document.createElement("button");
 
   editButton.addEventListener("click", () => {
     const currentText = textElement.textContent;
@@ -189,6 +199,16 @@ function allInOneDiv() {
 
     textElement.parentNode.insertBefore(inputField, textElement);
   });
+}
+
+// Function called if edit button is clicked
+function editListToDo(message_to_edit, btn_to_edit) {
+  btn_to_edit.addEventListener("click", () => {
+    message_to_edit.contentEditable = true;
+    message_to_edit.focus();
+  });
+  message_to_edit.contentEditable = false;
+  return message_to_edit.contentEditable;
 }
 
 allInOneDiv();
