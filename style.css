@@ -37,7 +37,7 @@ body {
 .upper-div .input-to-do-text {
   background-color: rgb(163, 207, 207);
   min-height: 3em;
-  margin: 3px;
+  margin: 1px;
   border: none;
   border-radius: 20px;
   padding: 0.5em;
@@ -65,7 +65,7 @@ body {
 
 .main-div {
   background-color: rgb(178, 141, 212);
-  border: 3px solid;
+  border: 1px solid;
 }
 
 /* Applied in .maindiv*/
@@ -103,7 +103,7 @@ body {
   border-radius: 20px;
   min-width: 30em;
   min-height: 20em;
-  border: 3px solid;
+  border: 1px solid;
   background-color: darkgrey;
 }
 

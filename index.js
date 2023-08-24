@@ -117,7 +117,6 @@ function allInOneDiv() {
     //Create span inside list to show task text
     const spanTxt = document.createElement("span");
     spanTxt.classList.add("span-txt-task");
-    spanTxt.style.textAlign = "center";
     spanTxt.style.alignSelf = "center";
     spanTxt.textContent = textInput.value;
     textInput.value = "";
