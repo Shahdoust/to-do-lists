@@ -141,9 +141,6 @@ function allInOneDiv() {
           hour: "2-digit",
           minute: "2-digit",
         });
-        dateP = document.createElement("span.title");
-        dateP.setAttribute("class", "date");
-        dateP.innerText = todayResult;
         spanTxt.title = todayResult;
       } else if (checkBox.checked !== true) {
         spanTxt.title = "";
