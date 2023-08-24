@@ -137,9 +137,16 @@ function allInOneDiv() {
     //Create buttons remove and edit
     const btRemove = document.createElement("button");
     btRemove.classList.add("btn-remove-todo");
-    listItem.appendChild(btRemove);
 
+    listItem.appendChild(btRemove);
     divMain.appendChild(listItem);
+    btRemove.textContent = "";
+
+    // divToDoButtons.appendChild(btRemove);
+
+    btRemove.addEventListener("click", (e) => {
+      listItem.remove();
+    });
   });
 }
 
