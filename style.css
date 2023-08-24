@@ -20,6 +20,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 3em;
 }
 
 .upper-div .input-to-do-text {
@@ -50,11 +51,18 @@ body {
 .upper-div .add-btn-input:hover {
   background-color: rgb(62, 75, 70);
 }
+
+.main-div {
+  background-color: rgb(178, 141, 212);
+  border: 3px solid;
+}
+
 /* Applied in .maindiv*/
 .add-item-to-list {
   display: grid;
   grid-template-columns: 1fr 3em 3em 3em;
   padding: 1em;
+  list-style: none;
 }
 
 .add-item-to-list:hover {
@@ -82,7 +90,10 @@ body {
 .to-do-text-div {
   margin: 2em;
   border-radius: 20px;
+  min-width: 30em;
+  min-height: 20em;
   border: 3px solid;
+  background-color: rgb(106, 143, 115);
 }
 
 

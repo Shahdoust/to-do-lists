@@ -75,6 +75,7 @@ function inputToDo() {
   // Adding input text to div input
   const inputData = document.createElement("input");
   inputData.classList.add("input-to-do-text");
+  inputData.placeholder = "Please write task";
   innerInputDiv.appendChild(inputData);
 
   // Adding click button to div input
@@ -87,6 +88,18 @@ function inputToDo() {
 }
 
 inputToDo();
+
+//Removed item to right panel
+function removedItem() {
+  const removedDiv = document.createElement("div");
+  removedDiv.classList.add("removed-div");
+
+  const but = document.createElement("button");
+  but.textContent = "eeee";
+  removedDiv.appendChild(but);
+  mainContainer.appendChild(removedDiv);
+}
+// removedItem();
 
 // Add list of input to div main section
 function allInOneDiv() {
@@ -107,33 +120,37 @@ function allInOneDiv() {
     spanTxt.textContent = textInput.value;
     let checkBox = document.createElement("input");
     checkBox.type = "checkbox";
-    checkBox.setAttribute("class","checkBox");
+    checkBox.setAttribute("class", "checkBox");
     spanTxt.appendChild(checkBox);
     checkBox.addEventListener("click", () => {
       if (checkBox.checked !== false) {
-
-      spanTxt.style.textDecoration = "line-through";
-      spanTxt.style.color = "green";
-      // const todayDate = `   Date: ${new Date().getDate()}` + `/` + `${(new Date().getMonth() + 1)}` + `/` + `${new Date().getFullYear()}, Time: ${new Date().getHours()}:` + `${new Date().getMinutes()}`;
-      const date = new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate(),new Date().getHours(),new Date().getMinutes());
-      const todayResult = date.toLocaleDateString("en-GB", {
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-        hour: "2-digit",
-        minute: "2-digit",
-      });
-      dateP = document.createElement("span.title");
-      dateP.setAttribute("class","date");
-      dateP.innerText = todayResult;
-      spanTxt.title = todayResult;
+        spanTxt.style.textDecoration = "line-through";
+        spanTxt.style.color = "green";
+        // const todayDate = `   Date: ${new Date().getDate()}` + `/` + `${(new Date().getMonth() + 1)}` + `/` + `${new Date().getFullYear()}, Time: ${new Date().getHours()}:` + `${new Date().getMinutes()}`;
+        const date = new Date(
+          new Date().getFullYear(),
+          new Date().getMonth(),
+          new Date().getDate(),
+          new Date().getHours(),
+          new Date().getMinutes()
+        );
+        const todayResult = date.toLocaleDateString("en-GB", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+        dateP = document.createElement("span.title");
+        dateP.setAttribute("class", "date");
+        dateP.innerText = todayResult;
+        spanTxt.title = todayResult;
       } else if (checkBox.checked !== true) {
-      spanTxt.title = "";
-      spanTxt.style.textDecoration = "none";
-      spanTxt.style.color = "black";
-  }
-      });
-
+        spanTxt.title = "";
+        spanTxt.style.textDecoration = "none";
+        spanTxt.style.color = "black";
+      }
+    });
     listItem.appendChild(spanTxt);
 
     //Create buttons remove and edit
@@ -150,32 +167,31 @@ function allInOneDiv() {
       listItem.remove();
     });
   });
-// sonia edit button
-const textElement = document.getElementById("text");
-const editButton = document.getElementById("editButton");
+  // sonia edit button
+  const textElement = document.getElementById("text");
+  const editButton = document.getElementById("editButton");
 
-editButton.addEventListener("click", () => {
-  const currentText = textElement.textContent;
-  const inputField = document.createElement("input");
-  inputField.value = currentText;
+  editButton.addEventListener("click", () => {
+    const currentText = textElement.textContent;
+    const inputField = document.createElement("input");
+    inputField.value = currentText;
 
-  inputField.addEventListener("keydown", (event) => {
-    if (event.key === "Enter") {
-      const newText = inputField.value;
-      textElement.textContent = newText;
-      textElement.style.display = "block";
-      inputField.style.display = "none";
-      editButton.style.display = "block";
-    }
+    inputField.addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        const newText = inputField.value;
+        textElement.textContent = newText;
+        textElement.style.display = "block";
+        inputField.style.display = "none";
+        editButton.style.display = "block";
+      }
+    });
+
+    editButton.style.display = "none";
+    textElement.style.display = "none";
+    inputField.style.display = "block";
+
+    textElement.parentNode.insertBefore(inputField, textElement);
   });
-
-  editButton.style.display = "none";
-  textElement.style.display = "none";
-  inputField.style.display = "block";
-
-  textElement.parentNode.insertBefore(inputField, textElement);
-});
 }
-
 
 allInOneDiv();
