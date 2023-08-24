@@ -111,6 +111,7 @@ function allInOneDiv() {
     spanTxt.appendChild(checkBox);
     checkBox.addEventListener("click", () => {
       if (checkBox.checked !== false) {
+
       spanTxt.style.textDecoration = "line-through";
       spanTxt.style.color = "green";
       // const todayDate = `   Date: ${new Date().getDate()}` + `/` + `${(new Date().getMonth() + 1)}` + `/` + `${new Date().getFullYear()}, Time: ${new Date().getHours()}:` + `${new Date().getMinutes()}`;
@@ -132,14 +133,22 @@ function allInOneDiv() {
       spanTxt.style.color = "black";
   }
       });
+
     listItem.appendChild(spanTxt);
 
     //Create buttons remove and edit
     const btRemove = document.createElement("button");
     btRemove.classList.add("btn-remove-todo");
-    listItem.appendChild(btRemove);
 
+    listItem.appendChild(btRemove);
     divMain.appendChild(listItem);
+    btRemove.textContent = "";
+
+    // divToDoButtons.appendChild(btRemove);
+
+    btRemove.addEventListener("click", (e) => {
+      listItem.remove();
+    });
   });
 // sonia edit button
 const textElement = document.getElementById("text");

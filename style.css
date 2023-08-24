@@ -65,16 +65,31 @@ body {
 .span-txt-task:hover {
   color: rgb(148, 42, 42);
 }
-
+/* bt- remove */
 .btn-remove-todo {
-  max-width: 3em;
+  border-radius: 10px;
+  background-color: transparent;
+  background-image: url(./imgs/trash.svg);
+  background-repeat: no-repeat;
+  background-size: 50%;
+  background-position: center;
+  border: 2px solid rgb(226, 11, 11);
+  cursor: pointer;
+  width: 3em;
+  height: 3em;
 }
 
 .to-do-text-div {
-  margin: 4em;
+  margin: 2em;
   border-radius: 20px;
   border: 3px solid;
 }
+
+
+.btn-remove-todo:hover {
+  box-shadow: 1px 2px 2px rgb(55, 5, 5);
+  transition-delay: 200ms;
+  background-color: rgb(226, 11, 11);
 
 .checkBox {
   filter: hue-rotate(270deg);
