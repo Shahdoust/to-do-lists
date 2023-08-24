@@ -85,8 +85,13 @@ body {
   border: 3px solid;
 }
 
+
 .btn-remove-todo:hover {
   box-shadow: 1px 2px 2px rgb(55, 5, 5);
   transition-delay: 200ms;
   background-color: rgb(226, 11, 11);
+
+.checkBox {
+  filter: hue-rotate(270deg);
+  place-content: center;
 }
